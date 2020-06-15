@@ -1,8 +1,9 @@
-# Reproduce Error: MQTT subscription topic wildcard stopped working in Quarkus 1.5.1-Final 
+# Reproduce Error: MQTT subscription topic wildcard stopped working in Quarkus 1.5.0-Final 
 
 When subscribing to an MQTT topic, "+" and "#" can be used as wildcards ([more details](https://mosquitto.org/man/mqtt-7.html)).
 
-This works with Quarkus 1.4.2-Final but stops working when switching to Quarkus 1.5.1-Final.
+This works with Quarkus 1.4.2-Final but stops working when switching to Quarkus 1.5.0-Final. 
+It still fails in Quarkus 1.5.1-Final.
 
 ## Preparation
 
