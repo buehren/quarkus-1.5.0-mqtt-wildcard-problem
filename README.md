@@ -3,7 +3,7 @@
 When subscribing to an MQTT topic, "+" and "#" can be used as wildcards ([more details](https://mosquitto.org/man/mqtt-7.html)).
 
 This works with Quarkus 1.4.2-Final but stops working when switching to Quarkus 1.5.0-Final. 
-It still fails in Quarkus 1.5.1-Final.
+It still fails in Quarkus 1.5.2-Final.
 
 ## Preparation
 
@@ -48,12 +48,12 @@ Result (as expected):
 Press CTRL+C to stop Quarkus.
 
 
-## See error with Quarkus 1.5.1-Final
+## See error with Quarkus 1.5.2-Final
 ```
-git checkout quarkus-1.5.1
+git checkout quarkus-1.5.2
 
-git diff master quarkus-1.5.1
-# Output shows that only the Quarkus version is changed to 1.5.1
+git diff master quarkus-1.5.2
+# Output shows that only the Quarkus version is changed to 1.5.2
 
 egrep "^mp.messaging.incoming.prices.topic=" src/main/resources/application.properties
 # Output:
@@ -61,8 +61,8 @@ egrep "^mp.messaging.incoming.prices.topic=" src/main/resources/application.prop
 
 egrep "<quarkus.*version" pom.xml
 # Output:
-#     <quarkus-plugin.version>1.5.1.Final</quarkus-plugin.version>
-#     <quarkus.platform.version>1.5.1.Final</quarkus.platform.version>
+#     <quarkus-plugin.version>1.5.2.Final</quarkus-plugin.version>
+#     <quarkus.platform.version>1.5.2.Final</quarkus.platform.version>
 
 mvn clean quarkus:dev
 ```
@@ -80,11 +80,11 @@ Result (ERROR):
 Press CTRL+C to stop Quarkus.
 
 
-## Optional: See it working with Quarkus 1.5.1-Final - but without MQTT wildcard
+## Optional: See it working with Quarkus 1.5.2-Final - but without MQTT wildcard
 ```
-git checkout quarkus-1.5.1-no-wildcard
+git checkout quarkus-1.5.2-no-wildcard
 
-git diff quarkus-1.5.1 quarkus-1.5.1-no-wildcard
+git diff quarkus-1.5.2 quarkus-1.5.2-no-wildcard
 # Output shows that only the topic wildcard in the subscription is no longer used
 
 egrep "^mp.messaging.incoming.prices.topic=" src/main/resources/application.properties
@@ -93,8 +93,8 @@ egrep "^mp.messaging.incoming.prices.topic=" src/main/resources/application.prop
 
 egrep "<quarkus.*version" pom.xml
 # Output:
-#     <quarkus-plugin.version>1.5.1.Final</quarkus-plugin.version>
-#     <quarkus.platform.version>1.5.1.Final</quarkus.platform.version>
+#     <quarkus-plugin.version>1.5.2.Final</quarkus-plugin.version>
+#     <quarkus.platform.version>1.5.2.Final</quarkus.platform.version>
 
 mvn clean quarkus:dev
 ```
